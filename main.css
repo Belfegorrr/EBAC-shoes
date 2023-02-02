@@ -5,7 +5,7 @@
 }
 body {
   color: white;
-  background-color: rgb(214, 216, 216);
+  background-color: rgb(214, 216, 216);  
 }
 header {
   display: flex;
@@ -18,11 +18,12 @@ header {
 header nav a {
   text-decoration: none;
   color: white;
+  margin-left: 10px;
 }
 .container {
   padding: 5%;
 }
-.container > h1 {
+.container > section h1 {
   color: rgb(46, 46, 173);
   padding: 5px;
   border-bottom: 1px solid;
@@ -30,18 +31,43 @@ header nav a {
 .container > img {
   margin: 10px 0;
   width: 100%;
-  height: 250px;
+  height: 100%;
 }
-.container > p {
+.container > section p {
   color: black;
   margin-top: 30px;
   padding: 7px;
   font-size: 20px;
 }
+.container-produtos{  
+  padding: 5%;
+}
+.container-produtos > h1{
+  color: rgb(46, 46, 173);
+  padding: 5px;
+  border-bottom: 1px solid
+}
+.container-produtos > article img{
+  margin: 10px 0;
+  width: 70%;
+  height: 50%;
+}
+.container-produtos > article p {
+  color: black;
+  margin-top: 30px;
+  padding: 7px;
+  font-size: 20px;
+}
+article{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
 
 article > img {
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   margin: 40px 0 20px 0;
 }
 article > h2,
@@ -67,7 +93,10 @@ button {
   border-radius: 10px;
   background-color: rgb(46, 46, 173);
 }
-@media screen and (min-width: 375px) and (max-width: 1023px) {
+#sobre{
+  font-size: 24px;
+}
+@media screen and (min-width: 640px) and (max-width: 1023px) {
   header {
     display: flex;
     justify-content: space-between;
@@ -87,54 +116,68 @@ button {
     flex-direction: column;
     padding: 5%;
   }
-  /* .col-a {
+  .grid-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "A B";
-  } */
-  .container > section h1 {
-    color: rgb(46, 46, 173);
-    padding: 5px;
-    border-bottom: 1px solid;
+    grid-template-areas:
+    "A A"
+    "B B";
   }
+  .grid-col > h1{
+    grid-area: A;
+  } 
   .container > img {    
     margin: 10px 0;
     width: 70%;
     height: 50%;
+  } 
+  article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5%;
   }
-  .container > section p {
+
+  .container-produtos > article img{
+    margin: 10px 0;
+    width: 70%;
+    height: 50%;
+  }
+  .container-produtos > article p {
     color: black;
-    margin-top: 30px;
+    margin-top: 15px;
     padding: 7px;
     font-size: 20px;
-  }
-
-  article > img {
-    width: 100%;
-    height: 100%;
-    margin: 40px 0 20px 0;
-  }
-  article > h2,
-  article > p {
-    color: black;
-  }
-  article > h2 {
-    margin-bottom: 10px;
-  }
-  article > p {
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  button {
-    padding: 10px 20px;
-    width: 100%;
-
-    color: white;
-    font: bold;
-    font-size: 20px;
-
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(46, 46, 173);
-  }
+  }   
+}
+@media screen and (min-width: 1024px){
+.container{
+  display: grid;
+  grid-template-areas: "A B";
+}
+h1, #sobre{
+  font-size: 28px;
+}
+article{
+  padding: 5%;
+}
+.container > img {
+  grid-area: A;
+  margin: 0;
+}
+.grid-sobre{
+  grid-area: B;
+  padding: 5%;
+}
+.container-produtos{
+  display: grid;
+  grid-template-areas: 
+  'a a a a'
+  'b b b b';
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#produtos{
+  grid-area: a;
+}
 }
